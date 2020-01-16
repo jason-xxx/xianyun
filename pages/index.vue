@@ -92,8 +92,23 @@ export default {
         })
     },
      methods: {
-        handleOption(index){},
-        handleSearch(){}
+ //***实现切换效果，并且判断如果切换的机票tab，那么直接跳转到机票首页 
+// 切换tab栏时候触发
+handleOption(index){
+  //设置当前tab， 点击当前的高亮
+  this.currentOption = index;  
+  // 如果切换的机票tab，那么直接跳转到机票首页
+  const item = this.options[index];
+  if(item.name === "机票"){
+    return this.$router.push(item.pageUrl);
+    }
+},
+//点击搜索时候触发，跳转到相应网页
+  handleSearch(index){
+    const item = this.options[this.currentOption];
+    // 跳转时候给对应的页面url加上搜索内容参数
+    this.$router.push(item.pageUrl + this.searchValue);
+        }
     },
 
 }
