@@ -1,7 +1,7 @@
 <template>
-    <div>
-        首页1111
-    </div>
+  <div>
+      旅游攻略首页
+  </div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-    <div>
-        首页1111
-    </div>
+  <div>
+      个人首页
+  </div>
 </template>
 
 <script>
