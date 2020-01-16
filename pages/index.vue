@@ -11,11 +11,11 @@
     :key="index">
     <!-- 给轮播图相应样式避免缩小时缩小，以背景图形式 -->
     <div class="banner-image"
-    :style="`background:url(${item.url}) center center no-repeat;
+    :style="`background:url(${$axios.defaults.baseURL+item.url}) center center no-repeat;
     background-size:contain contain`">
     </div>
     </el-carousel-item>
-    </el-carousel>  
+    </el-carousel>
     </div>
 </template>
 
@@ -25,15 +25,23 @@ export default {
         return{
             //轮播图数据（网络图片）
             banners:[
-                {
-                    url:"http://157.122.54.189:9095/assets/images/th03.jfif"
-                },
-                {
-                    url: "http://157.122.54.189:9095/assets/images/th04.jfif", 
-                }
+                // {
+                //     url:"http://157.122.54.189:9095/assets/images/th03.jfif"
+                // },
+                // {
+                //     url: "http://157.122.54.189:9095/assets/images/th04.jfif", 
+                // }
             ]
         }
-    }
+    },
+    mounted(){
+        this.$axios({
+            url: "/scenics/banners"
+        }).then(res => {
+            const {data} = res.data;
+            this.banners = data;
+        })
+    },
 
 }
 </script>
